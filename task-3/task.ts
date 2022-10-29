@@ -12,11 +12,11 @@ export interface Admin {
     role: string;
 }
 
-export function isUser(person: Person): person is User{
+export function isUser(person: Person){
 
 }
 
-export function isAdmin(person: Person): person is Admin{
+export function isAdmin(person: Person){
 
 }
 
