@@ -39,24 +39,80 @@ const persons: Person[] = [
     }
 ];
 
-function logPerson(person: Person) {
-    let additionalInformation = '';
-    if (isAdmin(person)) {
-        additionalInformation = person.role;
-    }
-    if (isUser(person)) {
-        additionalInformation = person.occupation;
-    }
-    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
-}
+
+let property: string = 'age'
+let value: any = 23
 
 
+/**
+ * test1
+ */
 
-filterUsers(
+console.log(!isAdmin(persons[0]))
+
+/**
+ * test2
+ */
+
+console.log(isUser(persons[0]))
+
+/**
+ * test3
+ */
+
+let test: boolean[] = filterUsers(
     persons,
     {
         age: 23
     }
-).forEach((user: User) => {
-    console.log(user.type === 'user')
-});
+).map((user: User) => isUser(user) && user[property] === value)
+    .filter((result: boolean) => result === false);
+
+if(!test.length){
+    console.log(true)
+}
+else{
+    console.log(false)
+}
+
+/**
+ * test4
+ */
+
+property = 'name'
+value = 'Jane Doe'
+
+test = filterUsers(
+    persons,
+    {
+        name: 'Jane Doe'
+    }
+).map((user: User) => isUser(user) && user[property] === value)
+    .filter((result: boolean) => result === false);
+
+if(!test.length){
+    console.log(true)
+}
+else{
+    console.log(false)
+}
+
+/**
+ * test5
+ */
+
+const propertyList: string[] = ['age','name']
+const valueList: any[] = [23, 'Max Mustermann']
+
+test = filterUsers(
+    persons,
+    {
+        age: 23,
+        name: 'Max Mustermann'
+    }
+).map((user: User) => {
+    return  isUser(user) &&
+        user[propertyList[0]] === valueList[0] &&
+        user[propertyList[1]] === valueList[1]
+})
+    .filter((result: boolean) => result === false);
