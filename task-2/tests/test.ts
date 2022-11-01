@@ -70,7 +70,7 @@ console.log(filter(array, 'SecondType').map((elem, index) =>{
 
 console.log(filter(array, 'ThirdType').map((elem, index) =>{
     if(index === 0){
-        return elem === obj5
+        return elem === obj6
     }
     if(index === 1){
         return elem === obj7

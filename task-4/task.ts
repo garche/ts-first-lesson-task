@@ -12,10 +12,10 @@ export interface IResponse {
 
 export class Model{
 
-    constructor(reponse: IResponse) {
+    public get fullName(): string{
+        return ''
     }
 
-    public getFullName(): string{
-        return ''
+    constructor(response: IResponse) {
     }
 }

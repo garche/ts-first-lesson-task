@@ -21,7 +21,7 @@ const example: IResponse = {
 
 const secondTest: Model = new Model(example)
 
-console.log(secondTest.getFullName() === 'Воробьев Сергей Евгеньевич')
+console.log(secondTest.fullName === 'Воробьев Сергей Евгеньевич')
 
 console.log(secondTest.dateStart.getDate() === 29)
 
